@@ -53,7 +53,7 @@ When get is called it creates a `Deps.Dependency.depend()` for that key in the s
 
 ### TemplateStore.set(id, propertyName, value, options)
 
-When set is called every depending reactive function where `View.get()` with the same key is called will rerun.
+When set is called every depending reactive function where `TemplateStore.get()` with the same key is called will rerun.
 
 - @method set
 - @param {String} id               The template instances id, best use `this._id` from your current data context.
