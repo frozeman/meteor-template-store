@@ -43,11 +43,11 @@ API Docs
 
 When get is called it creates a `Deps.Dependency.depend()` for that key in the store.
 
-@method get
-@param {String} id               The template instances id, best use `this._id` from your current data context.
-@param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
-@param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
-@return {Mixed} The stored value.
+- @method get
+- @param {String} id               The template instances id, best use `this._id` from your current data context.
+- @param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
+- @param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
+- @return {Mixed} The stored value.
 
 
 
@@ -55,12 +55,12 @@ When get is called it creates a `Deps.Dependency.depend()` for that key in the s
 
 When set is called every depending reactive function where `View.get()` with the same key is called will rerun.
 
-@method set
-@param {String} id               The template instances id, best use `this._id` from your current data context.
-@param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
-@param {String|Object} value     If the value is a string with `rerun`, then it will be rerun all dependent functions where get `TemplateInstance.get()` was called.
-@param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
-@return undefined
+- @method set
+- @param {String} id               The template instances id, best use `this._id` from your current data context.
+- @param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
+- @param {String|Object} value     If the value is a string with `rerun`, then it will be rerun all dependent functions where get `TemplateInstance.get()` was called.
+- @param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
+- @return undefined
 
 
 ### TemplateStore.unset(id, propertyName, options)
@@ -69,11 +69,11 @@ Clears a set property.
 
 **Note** This is by default NOT reactive. If you want it to rerun dependecies before removing the property, pass `{reactive: true}` as third parameter.
 
-@method unset
-@param {String} id               The template instances id, best use `this._id` from your current data context.
-@param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
-@param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
-@return undefined
+- @method unset
+- @param {String} id               The template instances id, best use `this._id` from your current data context.
+- @param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
+- @param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
+- @return undefined
 
 
 ### TemplateStore.unsetAll(propertyName, options)
@@ -82,7 +82,7 @@ Clears all instances of a set property.
 
 **Note** This is by default NOT reactive. If you want it to rerun dependecies before removing the property, pass `{reactive: true}` as third parameter.
 
-@method unsetAll
-@param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
-@param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
-@return undefined
+- @method unsetAll
+- @param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
+- @param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
+- @return undefined
