@@ -3,7 +3,7 @@
   "description": "A reactive store based on IDs for template instance specific triggers.",
   "homepage": "https://github.com/frozeman/meteor-template-store",
   "author": "Fabian Vogelsteller (http://frozeman.de)",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "git": "https://github.com/frozeman/meteor-template-store.git",
   "packages": {}
 }

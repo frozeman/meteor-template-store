@@ -151,8 +151,8 @@ TemplateStore = {
 
             this.deps[keyName].changed();
 
-        } else if(((_.isString(value) || _.isBoolean(value)) && this.keys[keyName] !== value) ||
-           (_.isObject(value) && !_.isEqual(this.keys[keyName], value))) {
+        } else if((!_.isObject(value) && this.keys[keyName] !== value) ||
+                  (_.isObject(value) && !_.isEqual(this.keys[keyName], value))) {
             this.keys[keyName] = value;
 
             if(!options || options.reactive !== false)
