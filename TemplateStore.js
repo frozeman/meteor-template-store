@@ -34,6 +34,11 @@ You also should be aware when using the `{{#with}}` helper, as this changes the 
 You cans also use the `TemplateStore` to reactivily "re-run" helpers by setting the value to `rerun`.
 This will just rerun all reactive helpers which call `TemplateStore.get()`.
 
+**Note**
+
+It won't rerun depending functions, when calling `TemplateStore.set()` and the value didn't changed. Except when the stored value is an object or array (as this is only a stored reference).
+
+
 @class TemplateStore
 @constructor
 **/
@@ -132,7 +137,7 @@ TemplateStore = {
 
 
     /**
-    When set is called every depending reactive function where `View.get()` with the same key is called will rerun.
+    When set is called every depending reactive function where `TemplateStore.get()` with the same key is called will rerun.
 
     @method set
     @param {String} id               The template instances id, best use `this._id` from your current data context.
@@ -146,13 +151,16 @@ TemplateStore = {
 
         this._ensureDeps(keyName);
 
+
         // only reload the dependencies, when value actually changed
         if(value === 'rerun') {
 
             this.deps[keyName].changed();
 
-        } else if((!_.isObject(value) && this.keys[keyName] !== value) ||
-                  (_.isObject(value) && !_.isEqual(this.keys[keyName], value))) {
+        // when object, always rerun, when something else, check if changed.
+        } else if((_.isObject(value)) ||
+                  !_.isEqual(this.keys[keyName], value)) {
+
             this.keys[keyName] = value;
 
             if(!options || options.reactive !== false)
