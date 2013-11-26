@@ -105,5 +105,26 @@ Tinytest.add('TemplateStore package - set() When set is called every depending r
 });
 
 
+// TemplateStore -> unset(id, propertyName, options)
+
+Tinytest.add('TemplateStore package - unset() should clear a set property.', function(test) {
+
+    // First call the set() function
+    TemplateStore.set('test', 'testPropertyName', 'testValue');
+
+    // Then check the values are present
+    test.instanceOf(TemplateStore.deps['test_testPropertyName'], Deps.Dependency);
+    test.equal(TemplateStore.keys['test_testPropertyName'], 'testValue');
+
+    // Now call the unset() function with the same keys as above
+    TemplateStore.unset('test', 'testPropertyName');
+
+    // Then check they have been deleted (they equate to false)
+    test.isFalse(TemplateStore.deps['test_testPropertyName']);
+    test.isFalse(TemplateStore.keys['test_testPropertyName']);
+
+});
+
+
 
 
