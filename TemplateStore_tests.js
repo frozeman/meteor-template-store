@@ -15,7 +15,7 @@ Tinytest.add('TemplateStore package - _ensureDeps() should set deps["key"] to a 
 
 // TemplateStore - _getKeyName(id, propertyName)
 
-Tinytest.add('TemplateStore package - _getKeyName() should generate and return a key name - eg: default_testPropertyName if the id paramter is not set.', function(test) {
+Tinytest.add('TemplateStore package - _getKeyName() should generate and return a key name > eg: default_testPropertyName if the id paramter is not set.', function(test) {
 
     // Run the function
     var generatedKeyName = TemplateStore._getKeyName(false, 'testPropertyName');
@@ -25,7 +25,7 @@ Tinytest.add('TemplateStore package - _getKeyName() should generate and return a
 
 });
 
-Tinytest.add('TemplateStore package - _getKeyName() should generate and return a key name - eg: myId12345_testPropertyName if the id paramter is set to myId12345.', function(test) {
+Tinytest.add('TemplateStore package - _getKeyName() should generate and return a key name > eg: myId12345_testPropertyName if the id paramter is set to myId12345.', function(test) {
 
     // Run the function
     var generatedKeyName = TemplateStore._getKeyName('myId12345', 'testPropertyName');
@@ -35,7 +35,7 @@ Tinytest.add('TemplateStore package - _getKeyName() should generate and return a
 
 });
 
-Tinytest.add('TemplateStore package - _getKeyName() should generate and return a key name - eg: myId12345_testPropertyName if the id paramter is an object.', function(test) {
+Tinytest.add('TemplateStore package - _getKeyName() should generate and return a key name > eg: myId12345_testPropertyName if the id paramter is an object.', function(test) {
 
     // Dummy ID object
     var id = {
