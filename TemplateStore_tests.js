@@ -66,7 +66,7 @@ Tinytest.add('TemplateStore package - get() should create a Deps.Dependency.depe
     TemplateStore.set('test', 'testPropertyName', 'testValue', options);
 
     // Run the function
-    var key = TemplateStore.get('test', 'testPropertyName', options);
+    var keyValue = TemplateStore.get('test', 'testPropertyName', options);
 
     // Then run the tests
 
@@ -74,8 +74,36 @@ Tinytest.add('TemplateStore package - get() should create a Deps.Dependency.depe
     test.instanceOf(TemplateStore.deps['test_testPropertyName'], Deps.Dependency);
 
     // Now checking that the correct value is returned
-    test.equal(key, 'testValue');
+    test.equal(keyValue, 'testValue');
+
+    // @TODO: Check that depend() was called on the dependency which will need a second copy of this test
 
 });
+
+
+// TemplateStore -> set(id, propertyName,value, options)
+
+Tinytest.add('TemplateStore package - set() When set is called every depending reactive function where `TemplateStore.get()` with the same key is called will rerun.', function(test) {
+
+    var options = {
+        reactive: true
+    }
+
+    // Call the function
+    TemplateStore.set('test', 'testPropertyName', 'testValue', options);
+
+    // The run our tests
+
+    // Checking that the TemplateStore.deps[test_testPropertyName] has been set as a Deps.Dependency
+    test.instanceOf(TemplateStore.deps['test_testPropertyName'], Deps.Dependency);
+
+    // Check that TemplateStore.keys['test_testPropertyName'] has been set to 'testValue'
+    test.equal(TemplateStore.keys['test_testPropertyName'], 'testValue');
+
+    // @TODO: Check that changed() has been called on the Deps.Dependency at the key name if the options parameter has been set
+
+});
+
+
 
 
