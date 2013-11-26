@@ -15,9 +15,8 @@ Package.on_use(function (api) {
 
 Package.on_test(function (api) {
 
-    // api.use('template-store');
-    // api.use('tinytest');
-
-    // api.add_files('TemplateStore_tests.js', 'client');
+    api.use('template-store');
+    api.use('tinytest');
+    api.add_files('TemplateStore_tests.js', 'client');
 
 });
