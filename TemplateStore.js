@@ -158,8 +158,8 @@ TemplateStore = {
             this.deps[keyName].changed();
 
         // when object, always rerun, when something else, check if changed.
-        } else if((_.isObject(value)) ||
-                  !_.isEqual(this.keys[keyName], value)) {
+        } else if(!_.isObject(value) ||
+                  (_.isObject(value) && !_.isEqual(this.keys[keyName], value))) {
 
             this.keys[keyName] = value;
 
