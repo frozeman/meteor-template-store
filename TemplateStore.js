@@ -168,6 +168,29 @@ TemplateStore = {
         }
     },
 
+    /**
+    Will set all keys of the given name, no matter of the id to the given value.
+
+    @method set
+    @param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
+    @param {String|Object} value     If the value is a string with `rerun`, then it will be rerun all dependent functions where get `TemplateInstance.get()` was called.
+    @param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
+    @return undefined
+    **/
+    setAll: function (propertyName, value, options) {
+        var _this = this,
+            propertyIds = _.compact(_.map(this.keys, function(value, key){
+                return (key.indexOf(propertyName) !== -1) ? _.trim(key.replace(propertyName, ''), '_') : null;
+            }));
+
+        console.log(propertyIds);
+
+        _.each(propertyIds, function(propertyId){
+            _this.set(propertyId, propertyName, options);
+        });
+    },
+
+
 
     /**
     Clears a set property.

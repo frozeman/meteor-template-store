@@ -66,6 +66,16 @@ When set is called every depending reactive function where `TemplateStore.get()`
 - @param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
 - @return undefined
 
+### TemplateStore.setAll(propertyName, value, options)
+
+Will run `set()` for all key, which match the property name, independent of its id.
+
+- @method set
+- @param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
+- @param {String|Object} value     If the value is a string with `rerun`, then it will be rerun all dependent functions where get `TemplateInstance.get()` was called.
+- @param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
+- @return undefined
+
 
 ### TemplateStore.unset(id, propertyName, options)
 
