@@ -183,8 +183,6 @@ TemplateStore = {
                 return (key.indexOf(propertyName) !== -1) ? _.trim(key.replace(propertyName, ''), '_') : null;
             }));
 
-        console.log(propertyIds);
-
         _.each(propertyIds, function(propertyId){
             _this.set(propertyId, propertyName, options);
         });
