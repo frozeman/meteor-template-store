@@ -37,6 +37,10 @@ You also should be aware when using the `{{#with}}` helper, as this changes the 
 You cans also use the `TemplateStore` to reactivily "re-run" helpers by setting the value to `rerun`.
 This will just rerun all reactive helpers which call `TemplateStore.get()`.
 
+**Note**
+
+It won't rerun depending functions, when calling `TemplateStore.set()` and the value didn't changed. Except when the stored value is an object or array (as this is only a stored reference).
+
 
 API Docs
 ========
@@ -59,6 +63,16 @@ When set is called every depending reactive function where `TemplateStore.get()`
 
 - @method set
 - @param {String} id               The template instances id, best use `this._id` from your current data context.
+- @param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
+- @param {String|Object} value     If the value is a string with `rerun`, then it will be rerun all dependent functions where get `TemplateInstance.get()` was called.
+- @param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
+- @return undefined
+
+### TemplateStore.setAll(propertyName, value, options)
+
+Will run `set()` for all key, which match the property name, independent of its id.
+
+- @method set
 - @param {String} propertyName     The name of the property you want to get. Should consist of the `'templateName->myPropertyName'`
 - @param {String|Object} value     If the value is a string with `rerun`, then it will be rerun all dependent functions where get `TemplateInstance.get()` was called.
 - @param {Object} options          give `{reactive: true}` if it shouldn't be reactive.
