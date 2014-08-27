@@ -1,9 +1,8 @@
 Package.describe({
-    name: "mrt:animation-helper",
+    name: "mrt:template-store",
     summary: "Deprecated use mrt:template-session2, A reactive store based on IDs for template specific triggers",
     version: "0.1.4",
     git: "https://github.com/frozeman/meteor-template-store.git"
-
 });
 
 Package.onUse(function (api) {
