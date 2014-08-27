@@ -1,10 +1,12 @@
+*Note: As of Meteor version 0.9.0 I recommend using the `mrt:template-session2` package, which has a similar syntax, but its easier to use.*
+
 A reactive store based on IDs for template instance specific triggers.
 The `TemplateStore` class is used for making reactive property transfers between helpers and callbacks possible.
 
 Installation
 ============
 
-    $ mrt add template-store
+    $ meteor add mrt:template-store
 
 Usage
 =====

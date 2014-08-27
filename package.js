@@ -1,23 +1,20 @@
 Package.describe({
-    summary: "A reactive store based on IDs for template instance specific triggers"
+    name: "mrt:animation-helper",
+    summary: "Deprecated use mrt:template-session2, A reactive store based on IDs for template specific triggers",
+    version: "0.0.6",
+    git: "https://github.com/frozeman/meteor-template-store.git"
+
 });
 
-Package.on_use(function (api) {
+Package.onUse(function (api) {
+    api.versionsFrom('METEOR@0.9.0');
 
-    // third party
+    // core
     api.use('underscore', 'client');
+
 
     api.export('TemplateStore');
 
     // FILES
-    api.add_files('TemplateStore.js', 'client');
-});
-
-Package.on_test(function (api) {
-
-    // api.use('template-store');
-    // api.use('tinytest');
-
-    // api.add_files('TemplateStore_tests.js', 'client');
-
+    api.addFiles('TemplateStore.js', 'client');
 });
